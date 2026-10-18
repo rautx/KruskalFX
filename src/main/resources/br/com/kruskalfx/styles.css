@@ -1,0 +1,15 @@
+.root {
+    -fx-background-color: #101820;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.title {
+    -fx-text-fill: #f2f5f7;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+.description {
+    -fx-text-fill: #aab7c4;
+    -fx-font-size: 16px;
+}
