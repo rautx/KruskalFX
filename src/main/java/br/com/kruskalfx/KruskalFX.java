@@ -109,7 +109,7 @@ public class KruskalFX extends KruskalFXApplication {
 
         // 1. LEITURA DIRETA DO ARQUIVO ma.txt
         try {
-            FileReader leitorArquivo = new FileReader("ma.txt");
+            FileReader leitorArquivo = new FileReader("ma3.txt");
             BufferedReader leitor = new BufferedReader(leitorArquivo);
 
             String conteudoLinha = leitor.readLine();
