@@ -14,7 +14,7 @@ public class KruskalFXApplication extends Application {
         Label title = new Label("KruskalFX");
         title.getStyleClass().add("title");
 
-        Label description = new Label("O visualizador do algoritmo de Kruskal comeca aqui.");
+        Label description = new Label("Visualizador do algoritmo de Kruskal.");
         description.getStyleClass().add("description");
 
         VBox content = new VBox(12, title, description);

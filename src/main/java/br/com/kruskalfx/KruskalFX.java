@@ -33,16 +33,19 @@ public class KruskalFX extends KruskalFXApplication {
     @Override
     public void start(Stage palcoPrincipal) {
         VBox layout = new VBox();
+        layout.getStyleClass().add("kruskal-root");
         layout.setPadding(new Insets(10, 10, 10, 10));
         layout.setSpacing(10);
 
         Button botaoExecutar = new Button("Executar Kruskal");
+        botaoExecutar.getStyleClass().add("primary-button");
 
-        Label labelSaida = new Label("Ordenação das Arestas e Teste de Mesa:");
+        Label labelSaida = new Label("Teste de Mesa:");
+        labelSaida.getStyleClass().add("section-label");
         TextArea areaSaida = new TextArea();
+        areaSaida.getStyleClass().add("result-area");
         areaSaida.setEditable(false);
         areaSaida.setPrefHeight(450);
-        areaSaida.setStyle("-fx-font-family: 'monospaced';");
 
         AcaoBotaoKruskal acao = new AcaoBotaoKruskal(areaSaida);
         botaoExecutar.setOnAction(acao);
@@ -52,7 +55,10 @@ public class KruskalFX extends KruskalFXApplication {
         layout.getChildren().add(areaSaida);
 
         Scene cena = new Scene(layout, 650, 550);
-        palcoPrincipal.setTitle("Trabalho AGM - Kruskal com Arquivo txt");
+        cena.getStylesheets().add(
+                KruskalFX.class.getResource("styles.css").toExternalForm()
+        );
+        palcoPrincipal.setTitle("Trabalho de Teoria dos Gráfos (TG I) - Algoritmo de Kruskal");
         palcoPrincipal.setScene(cena);
         palcoPrincipal.show();
     }
@@ -184,8 +190,8 @@ public class KruskalFX extends KruskalFXApplication {
         // Preparação do teste de mesa.
         String[] representantes = new String[vertices.length];
         v = 0;
-        String cabecalho = "ARESTA  | ";
-        String linhaInicio = "(Início)| ";
+        String cabecalho = "ARESTA | ";
+        String linhaInicio = "(Início) | ";
 
         while (v < vertices.length) {
             representantes[v] = vertices[v];
@@ -208,7 +214,7 @@ public class KruskalFX extends KruskalFXApplication {
             String repOrigem = representantes[indOrigem];
             String repDestino = representantes[indDestino];
 
-            textoSaida = textoSaida + arestaAtual.origem + "," + arestaAtual.destino + " (" + arestaAtual.peso + ")| ";
+            textoSaida = textoSaida + "(" + arestaAtual.origem + "," + arestaAtual.destino + ") [" + arestaAtual.peso + "] | ";
 
             if (!repOrigem.equals(repDestino)) {
                 custoTotal = custoTotal + arestaAtual.peso;
